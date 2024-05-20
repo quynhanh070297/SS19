@@ -12,13 +12,15 @@ import java.util.List;
 @Controller
 public class EmployeeController
 {
+
     @Autowired
     private EmployeeDao employeeDao;
-    @RequestMapping( value = {"/","/Employee"})
+    @RequestMapping( value = {"/Employee"})
     public  String home(Model model){
         List<Employee> list = employeeDao.getEmployeeList();
         model.addAttribute("employeeList", list);
         return "Employee";
+
     }
 
     @RequestMapping("/add")
